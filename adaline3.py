@@ -10,7 +10,7 @@ x = [[1, 1], [-1, 1], [1, -1], [-1, -1]]        # Inputs
 t = [1, -1, -1, -1]             # Target
 # Parametros
 alfa = 0.12                     # Taxa de aprendizagem
-EqAdmissivel = 0.01                  # Erro quadratico total
+EqAdmissivel = 0.01             # Erro quadratico total
 CicloMax = 100                  # Limite de ciclo
 tolerancia = 0.0001             # Ajuste maximo admissivel dos pesos
 
@@ -27,23 +27,36 @@ Bnovo = Banterior
 # Treinamento da rede neural
 ciclos = 0
 matriz = [[], []]
-while (ciclos < CicloMax):
+
+
+g = True
+while g:
     ciclos = ciclos + 1
     EqTotal = 0                             # Erro quadratico total
-
+    
     # Inserindo padroes de treino
     for padrao in range(4):
         Yin = Banterior + (x[padrao][0] * Wanterior[0]) + (x[padrao][1] * Wanterior[1])
         EqTotal = EqTotal + (0.5 * ((t[padrao] - Yin)**2))
 
         # Atualização dos pesos
+        e = Banterior
         Bnovo = Banterior + (alfa * (t[padrao] - Yin))
+        e = Bnovo - e
 
         for i in range(2):
+            r = Wanterior[i]
             Wnovo[i] = Wanterior[i] + (alfa * x[padrao][i] * (t[padrao] - Yin))
+            r = Wnovo[i] - r
         Wanterior = Wnovo
         Banterior = Bnovo
-    #print(Yin)
+    
+        if r or e < tolerancia:
+            g = False
+    
+    #print('Erro: ',e)
+    #print(EqTotal)
+    #print(Yin)                         # Printando as entradas
     matriz[0].append(ciclos)
     matriz[1].append(EqTotal)
 
