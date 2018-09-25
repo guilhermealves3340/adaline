@@ -10,7 +10,7 @@ x = [[1, 1], [-1, 1], [1, -1], [-1, -1]]        # Inputs
 t = [1, -1, -1, -1]             # Target
 # Parametros
 alfa = 0.12                     # Taxa de aprendizagem
-EqAdmissivel = 0.01                  # Erro quadratico total
+EqAdmissivel = 0.01             # Erro quadratico total
 CicloMax = 100                  # Limite de ciclo
 tolerancia = 0.0001             # Ajuste maximo admissivel dos pesos
 
