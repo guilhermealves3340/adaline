@@ -1,6 +1,5 @@
 # Implementação da técnica de treinamento de redes neurais ADALINE
 
-# Prof Keiji Yamanaka
 
 from random import uniform
 import matplotlib.pyplot as plt
@@ -27,7 +26,7 @@ Bnovo = Banterior
 # Treinamento da rede neural
 ciclos = 0
 matriz = [[], []]
-while (ciclos < CicloMax):
+while ciclos < CicloMax:
     ciclos = ciclos + 1
     EqTotal = 0                             # Erro quadratico total
 

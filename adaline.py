@@ -1,8 +1,6 @@
 # Implementação da técnica de treinamento de redes neurais ADALINE
 
-# Prof Keiji Yamanaka
-
-# Colocando criterio de parada como tolerancia maior que 0.0001 por exemplo
+# Colocando criterio de parada como tolerancia de variação de 0.0001 por exemplo
 
 from random import uniform
 import matplotlib.pyplot as plt
@@ -30,8 +28,8 @@ Bnovo = Banterior
 # Treinamento da rede neural
 ciclos = 0
 matriz = [[], []]
-r = 1
-sinal = True
+r = 1                           # Variável delta do b
+sinal = sinal1 = sinal2 = True  
 while sinal:
     ciclos = ciclos + 1
     EqTotal = 0                             # Erro quadratico total
@@ -46,7 +44,7 @@ while sinal:
         Bnovo = Banterior + (alfa * (t[padrao] - Yin))
         r = Bnovo - r
         if math.sqrt(r**2) < math.sqrt(tolerancia**2):
-            sinal = False
+            sinal1 = False
             break
 
         for i in range(2):
@@ -54,10 +52,11 @@ while sinal:
             Wnovo[i] = Wanterior[i] + (alfa * x[padrao][i] * (t[padrao] - Yin))
             r = Wnovo[i] - r
             if math.sqrt(r**2) < math.sqrt(tolerancia**2):
-                sinal = False
+                sinal2 = False
                 break
 
-        if sinal == False:
+        if sinal1 == False and sinal2 == False:
+            sinal = False
             break
         Wanterior = Wnovo
         Banterior = Bnovo
