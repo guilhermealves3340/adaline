@@ -18,10 +18,10 @@ x = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]                                 
 y = [2.26, 3.8, 4.43, 5.91, 6.18, 7.26, 8.15, 9.14, 10.87, 11.58, 12.55]        # Eixo y
 
 # Parametros
-alfa = 0.12
+alfa = 0.0012
 cicloMax = 1000
 tolerancia = 0.0001
-EqAdmissivel = 0.01
+EqAdmissivel = 0.47
 
 # Inicialização dos pesos entre -0.5 e 0.5
 
@@ -60,35 +60,12 @@ print('w', ' -> ', Wanterior)
 print('b -> ', Banterior)
 print('CICLOS: ', ciclos)
 plt.plot(matriz[0], matriz[1], 'ro')
-plt.axis([0, 50, 0, 2])
+plt.axis([0, 150, 0, 150])
 plt.show()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""
 plt.plot(x, y, 'ro')
 plt.axis([0,15, 0,30])
 plt.show()
+
+"""
