@@ -41,7 +41,7 @@ while EqTotal > EqAdmissivel:
     # Inserindo padroes de treino
     for i in range(len(x)):
         Yin = Banterior + (x[i] * Wanterior)
-        EqTotal = EqTotal + (0.5 * ( y[i]-Yin)**2) 
+        EqTotal = EqTotal + (0.5 * ( y[i]-Yin)**2)  # Expressão ERRO QUADRATICO
 
         # Atualização dos pesos
         Bnovo = Banterior + (alfa * (y[i] - Yin))
@@ -60,7 +60,7 @@ print('w', ' -> ', Wanterior)
 print('b -> ', Banterior)
 print('CICLOS: ', ciclos)
 plt.plot(matriz[0], matriz[1], 'ro')
-plt.axis([0, 150, 0, 150])
+plt.axis([0, 80, 0, 60])
 plt.show()
 
 """
@@ -68,4 +68,10 @@ plt.plot(x, y, 'ro')
 plt.axis([0,15, 0,30])
 plt.show()
 
+"""
+
+"""
+    Tarefa
+    -------
+    Treinar adaline para reconhecer dígitos
 """

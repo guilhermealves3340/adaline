@@ -13,7 +13,7 @@ t = [1, -1, -1, -1]             # Target
 alfa = 0.12                     # Taxa de aprendizagem
 EqAdmissivel = 0.01             # Erro quadratico total
 CicloMax = 100                  # Limite de ciclo
-tolerancia = 0.0001             # Ajuste maximo admissivel dos pesos
+tolerancia = 0.05             # Ajuste maximo admissivel dos pesos
 
 
 # Inicialização dos pesos entre -0.5 e 0.5
